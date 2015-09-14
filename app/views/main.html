@@ -1,0 +1,55 @@
+<div layout="row" flex="100" layout-align="center">
+    <h3 translate="Guest List">Guest List</h3>
+</div>
+
+<div layout="row" flex="100">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    <span ng-show="!showSearch">
+                        <span translate="Guest Name">Guest Name</span>
+                        <md-icon md-font-set="material-icons" ng-click="showSearch = true">search</md-icon>
+                    </span>
+
+                    <span ng-show="showSearch">
+                        <div layout="row">
+                            <div flex="40">
+                                <input class="form-control input-sm" ng-model="searchGuest.name" placeholder="{{ 'filter guests' | translate }}" />
+                            </div>
+                            <div flex="20">
+                                <md-icon md-font-set="material-icons" ng-click="showSearch = false">close</md-icon>
+                            </div>
+                        </div>
+                    </span>
+                </th>
+                <th translate="Email">Email</th>
+                <th translate="Actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="guest in guests | filter:searchGuest">
+                <th scope="row">
+                    {{ ($index+1) }}
+                </th>
+                <td>{{ guest.name }}</td>
+                <td>{{ guest.email }}</td>
+                <td>
+                    <div layout="row">
+                        <div flex="50">
+                            <md-button class="md-icon-button" aria-label="edit" href="#/edit/{{ guest.id }}">
+                                <md-icon md-font-set="material-icons">edit</md-icon>
+                            </md-button>
+                        </div>
+                        <div flex="50">
+                            <md-button class="md-icon-button" aria-label="delete" ng-click="delete(guest)">
+                                <md-icon md-font-set="material-icons">delete</md-icon>
+                            </md-button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

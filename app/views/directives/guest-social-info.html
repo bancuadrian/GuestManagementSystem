@@ -1,0 +1,51 @@
+<md-content class="md-padding register-tab">
+    <div layout="row" layout-align="center" flex>
+        <h1 class="md-display-2" translate="Social Networks">Social Networks</h1>
+    </div>
+    <div layout="column">
+        <form name="socialNetworksForm">
+            <div layout="row">
+                <div flex="5" layout="column" layout-align="center center">
+                    <md-checkbox ng-model="user.has_facebook" aria-label="facebook" ng-change="reset('facebook')"></md-checkbox>
+                </div>
+                <div flex="95" layout="column">
+                    <md-input-container>
+                        <label>facebook</label>
+                        <input ng-model="user.social['facebook']" name="facebook" ng-disabled="!user.has_facebook" ng-required="user.has_facebook">
+                        <div ng-messages="socialNetworksForm.facebook.$error">
+                            <div ng-message="required">{{ 'Please type the guest\'s facebook profile address' | translate }}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex="5" layout="column" layout-align="center center">
+                    <md-checkbox ng-model="user.has_linkedin" aria-label="linkedin" ng-change="reset('linkedin')"></md-checkbox>
+                </div>
+                <div flex="95" layout="column">
+                    <md-input-container>
+                        <label>linkedin</label>
+                        <input ng-model="user.social['linkedin']" name="linkedin" ng-disabled="!user.has_linkedin" ng-required="user.has_linkedin">
+                        <div ng-messages="socialNetworksForm.linkedin.$error">
+                            <div ng-message="required">{{ 'Please type the guest\'s linkedin profile address' | translate }}</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex="5" layout="column" layout-align="center center">
+                    <md-checkbox ng-model="user.has_twitter" aria-label="twitter" ng-change="reset('twitter')"></md-checkbox>
+                </div>
+                <div flex="95" layout="column">
+                    <md-input-container>
+                        <label>twitter</label>
+                        <input ng-model="user.social['twitter']" name="twitter" ng-disabled="!user.has_twitter" ng-required="user.has_twitter">
+                        <div ng-messages="socialNetworksForm.twitter.$error">
+                            <div ng-message="required">{{ 'Please type the guest\'s twitter profile address' | translate }} </div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </form>
+    </div>
+</md-content>

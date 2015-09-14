@@ -1,0 +1,47 @@
+<md-content class="md-padding register-tab">
+    <div layout="row" layout-align="center" flex>
+        <h1 class="md-display-2" translate="Review Guest Info">Review Guest Info</h1>
+    </div>
+    <div layout="column">
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title" translate="Guest Personal Information">Guest Personal Information</h2>
+                <div layout="row">
+                    <p>{{ 'Name' | translate }}: {{ user.name }}</p>
+                </div>
+                <div layout="row">
+                    <p>{{ 'Gender' | translate }} : {{ user.gender }}</p>
+                </div>
+                <div layout="row">
+                    <p>{{ 'E-mail' | translate }} : {{ user.email }}</p>
+                </div>
+                <div layout="row">
+                    <p>{{ 'Company' | translate }}: {{ user.company }}</p>
+                </div>
+                <div layout="row">
+                    <p>{{ 'Remarks' | translate }} : {{ user.remarks }}</p>
+                </div>
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title" translate="Guest Social Networks">Guest Social Networks</h2>
+                <div layout="row" ng-repeat="(key,value) in user.social">
+                    <p><span style="text-transform: capitalize">{{ key }}</span> : {{ value }}</p>
+                </div>
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+            <md-card-content>
+                <h2 class="md-title" translate="Interests">Interests</h2>
+                <div layout="row">
+                    <md-chips>
+                        <md-chip ng-repeat="interest in user.interests">{{ interest }}</md-chip>
+                    </md-chips>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
