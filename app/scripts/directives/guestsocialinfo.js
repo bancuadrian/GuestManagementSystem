@@ -30,7 +30,7 @@ angular.module('egmApp')
           {
               if(!$scope.user['has_' + account])
               {
-                  delete($scope.user.social[account]);
+                  if($scope.user.social) delete($scope.user.social[account]);
               }
           }
       }
